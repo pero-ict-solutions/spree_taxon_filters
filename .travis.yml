@@ -9,4 +9,3 @@ notifications:
     - peter@pero-ict.nl
 rvm:
   - 1.9.3
-  - 2.0.0
