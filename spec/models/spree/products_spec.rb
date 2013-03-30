@@ -13,6 +13,4 @@ describe Spree::Product do
     product.taxons << create(:taxon, name: "my brand", taxonomy: taxonomy)
     Spree::Product.by_brand("my brand").should include(product)
   end
-
-
 end
