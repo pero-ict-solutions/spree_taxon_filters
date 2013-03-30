@@ -7,7 +7,7 @@ This extension will add a scope to your product for each taxonomy. That scope ac
 
 So with the Taxonomies "Brands" and "Categories" you could filter the products like this:
 
-Spree::Product.by_brand("nike").by_categories("shoes")
+Spree::Product.by_brand("nike").by_category("shoes")
 
 Testing
 -------
