@@ -1,5 +1,6 @@
 SpreeTaxonFilters
 =================
+[![Build Status](https://travis-ci.org/pero-ict-solutions/spree_taxon_filters.png?branch=master)](https://travis-ci.org/pero-ict-solutions/spree_taxon_filters)
 
 Filter your products based on the taxonomies.
 
