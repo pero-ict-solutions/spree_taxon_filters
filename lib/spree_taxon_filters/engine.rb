@@ -12,9 +12,16 @@ module SpreeTaxonFilters
     end
 
     def self.activate
-      Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
-        Rails.configuration.cache_classes ? require(c) : load(c)
-      end
+
+
+      taxonomy_decorator = File.join(File.dirname(__FILE__), '../../app/models/spree/taxonomy_decorator.rb')
+      product_decorator = File.join(File.dirname(__FILE__), '../../app/models/spree/product_decorator.rb')
+
+      Rails.configuration.cache_classes ? require(taxonomy_decorator) : load(taxonomy_decorator)
+      Rails.configuration.cache_classes ? require(product_decorator) : load(product_decorator)
+      # Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
+      #   Rails.configuration.cache_classes ? require(c) : load(c)
+      # end
     end
 
     config.to_prepare &method(:activate).to_proc
