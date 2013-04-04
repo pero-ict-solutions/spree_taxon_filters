@@ -4,12 +4,6 @@ SpreeTaxonFilters
 
 Filter your products based on the taxonomies.
 
-This extension will add a scope to your product for each taxonomy. That scope accepts a taxon value from the taxonomy and will return all products that are assigned that taxon. 
-
-So with the Taxonomies "Brands" and "Categories" you could filter the products like this:
-
-Spree::Product.by_brand("nike").by_category("shoes")
-
 Testing
 -------
 
