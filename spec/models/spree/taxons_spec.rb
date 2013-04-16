@@ -6,13 +6,13 @@ describe Spree::Taxon do
 
   context "#taxon_filter" do
     it "returns the filter string 'taxononmy.id,taxon.id'" do
-      taxon.taxon_filter.should eql "#{taxon.taxonomy.id},#{taxon.id}"
+      taxon.taxon_filter.should eql taxon.id.to_s
     end
   end
 
   context "#to_filter_params" do
     it "returns the filters[] params for filtering" do
-      taxon.to_filter_params.should == "filters[]=#{taxon.taxonomy.id},#{taxon.id}"
+      taxon.to_filter_params.should == "filters[]=#{taxon.id}"
     end
   end
 
@@ -22,26 +22,26 @@ describe Spree::Taxon do
     let(:yet_other_taxon) { create(:taxon, :taxonomy => other_taxon.taxonomy) }
 
     context "when 1 filter present" do
-      let(:params) { {"filters" => ["#{other_taxon.taxonomy.id},#{other_taxon.id}"]}}
+      let(:params) { {"filters" => ["#{other_taxon.id}"]}}
       context "#to_filter_params" do
         it "will append the taxon as a filter" do
-          taxon.to_filter_params(params).should == "filters[]=#{other_taxon.taxonomy.id},#{other_taxon.id}&filters[]=#{taxon.taxonomy.id},#{taxon.id}"
+          taxon.to_filter_params(params).should == "filters[]=#{other_taxon.id}&filters[]=#{taxon.id}"
         end
       end
     end
 
     context "when more then 1 filters present" do
-      let(:params) { {"filters" => ["#{other_taxon.taxonomy.id},#{other_taxon.id}","#{yet_other_taxon.taxonomy.id},#{yet_other_taxon.id}"]}}
+      let(:params) { {"filters" => ["#{other_taxon.id}","#{yet_other_taxon.id}"]}}
       context "#to_filter_params" do
         it "will append the taxon as a filter" do
-          taxon.to_filter_params(params).should == "filters[]=#{other_taxon.taxonomy.id},#{other_taxon.id}&filters[]=#{yet_other_taxon.taxonomy.id},#{yet_other_taxon.id}&filters[]=#{taxon.taxonomy.id},#{taxon.id}"
+          taxon.to_filter_params(params).should == "filters[]=#{other_taxon.id}&filters[]=#{yet_other_taxon.id}&filters[]=#{taxon.id}"
         end
       end
     end
   end
 
   context "with own filter present in params" do
-    let(:params) { {"filters" => ["#{taxon.taxonomy.id},#{taxon.id}"]}}
+    let(:params) { {"filters" => ["#{taxon.id}"]}}
     context "#to_filter_params" do
       it "will remove the filter from the params" do
         taxon.to_filter_params(params).should == ""

@@ -25,7 +25,7 @@ describe Spree::Core::Search::TaxonFilterSearcher do
 
     context "with taxon filters present" do
 
-      let(:params) { {"filters" => ["#{taxonomy_by_color.id}, #{red_taxon.id}"]} }
+      let(:params) { {"filters" => ["#{red_taxon.id}"]} }
       let(:searcher) {Spree::Core::Search::TaxonFilterSearcher.new(params)}
 
       it "returns products based on the filters params" do
