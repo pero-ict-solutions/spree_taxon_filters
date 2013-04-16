@@ -19,7 +19,7 @@ describe Spree::Taxon do
   context "with another filter already in params" do
 
     let(:other_taxon) { create(:taxon) }
-    let(:yet_other_taxon) { create(:taxon) }
+    let(:yet_other_taxon) { create(:taxon, :taxonomy => other_taxon.taxonomy) }
 
     context "when 1 filter present" do
       let(:params) { {"filters" => ["#{other_taxon.taxonomy.id},#{other_taxon.id}"]}}

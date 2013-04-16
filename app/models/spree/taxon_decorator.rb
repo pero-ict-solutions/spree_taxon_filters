@@ -10,7 +10,7 @@ Spree::Taxon.class_eval do
       filter_params = []
       filters = params["filters"]
       if filters.include?(taxon_filter)
-        filters.delete(taxon_filter)
+        filters.reject{|f| f == taxon_filter}
       else
         filters.push("#{self.taxonomy_id},#{self.id}")
       end
