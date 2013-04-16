@@ -5,7 +5,7 @@ Spree::Taxon.class_eval do
   end
 
   def to_filter_params(params = {})
-    filter_params = params["filters"].dup || []
+    filter_params = params["filters"].try(:dup) || []
     if(filter_params.include?(taxon_filter))
       filter_params.delete(taxon_filter)
     else
