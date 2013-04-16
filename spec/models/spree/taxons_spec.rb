@@ -32,4 +32,14 @@ describe Spree::Taxon do
       end
     end
   end
+
+  context "with own filter present in params" do
+    let(:params) { {"filters" => ["#{taxon.taxonomy.id},#{taxon.id}"]}}
+    context "#to_filter_params" do
+      it "will remove the filter from the params" do
+        taxon.to_filter_params(params).should == ""
+      end
+    end
+  end
+
 end
