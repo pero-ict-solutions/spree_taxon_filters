@@ -8,4 +8,5 @@ describe Spree::Taxon do
       taxon.to_filter_params.should == "filters[]=#{taxon.taxonomy.id},#{taxon.id}"
     end
   end
+
 end
