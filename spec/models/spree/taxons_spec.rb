@@ -1,7 +1,14 @@
 require 'spec_helper'
 
 describe Spree::Taxon do
-  let(:taxon) { create(:taxon) }
+  let!(:taxon) { create(:taxon) }
+  subject {taxon}
+
+  context "#taxon_filter" do
+    it "returns the filter string 'taxononmy.id,taxon.id'" do
+      taxon.taxon_filter.should eql "#{taxon.taxonomy.id},#{taxon.id}"
+    end
+  end
 
   context "#to_filter_params" do
     it "returns the filters[] params for filtering" do

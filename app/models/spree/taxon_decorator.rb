@@ -1,6 +1,10 @@
 Spree::Taxon.class_eval do
+
+  def taxon_filter
+    "#{self.taxonomy_id},#{self.id}"
+  end
+
   def to_filter_params(params = {})
-    taxon_filter = "#{self.taxonomy_id},#{self.id}"
     filter_param = "filters[]=#{taxon_filter}"
     if params["filters"].present?
       filter_params = []
