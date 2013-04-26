@@ -4,6 +4,8 @@ SpreeTaxonFilters
 
 Filter your products based on the taxonomies.
 
+todo: make the filters seo friendly ie products/brand/sony/color/green
+
 Testing
 -------
 
