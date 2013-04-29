@@ -12,4 +12,18 @@ describe "Admin Taxonomies as filters" do
     page.should have_content("successfully")
   end
 
+  context "assign filters to taxonomies" do
+    let!(:taxonomy_filter) {create(:taxonomy, :is_a_filter => true)}
+
+    it "can assign taxonomy filters to taxonomy" do
+      visit spree.edit_admin_taxonomy_path(taxonomy)
+      check "taxonomy_filter_#{taxonomy_filter.id}"
+      click_button "Update"
+      page.should have_content("successfully")
+      taxonomy.filters.should include(taxonomy_filter)
+    end
+
+  end
+
+
 end
