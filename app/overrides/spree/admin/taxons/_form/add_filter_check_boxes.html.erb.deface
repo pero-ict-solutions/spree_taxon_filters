@@ -1,0 +1,14 @@
+<!-- insert_bottom "[data-hook='admin_inside_taxon_form']" -->
+
+<div class="field">
+  <%= label_tag nil, t(:filters) %>
+  <ul>
+    <% Spree::Taxonomy.filters.each do |filter| %>
+      <li>
+        <%= check_box_tag 'taxon[filter_ids][]', filter.id, @taxon.filters.include?(filter), :id => "taxon_filter_#{filter.id}" %>
+        <%= label_tag filter.name %>
+      </li>
+    <% end %>
+  </ul>
+  <%= hidden_field_tag 'taxon[filter_ids][]', '' %>
+</div>
