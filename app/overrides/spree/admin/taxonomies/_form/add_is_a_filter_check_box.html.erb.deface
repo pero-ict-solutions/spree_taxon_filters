@@ -1,0 +1,5 @@
+<!-- insert_bottom "[data-hook='admin_inside_taxonomy_form']" -->
+<%= f.field_container :is_a_filter do %>
+  <%= f.label :is_a_filter %><br />
+  <%= f.check_box :is_a_filter %>
+<% end %>
