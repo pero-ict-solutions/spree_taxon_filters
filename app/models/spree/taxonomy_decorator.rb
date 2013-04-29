@@ -1,5 +1,5 @@
 Spree::Taxonomy.class_eval do
-  attr_accessible :is_a_filter
+  attr_accessible :is_a_filter, :filter_ids
 
   def self.filters
     where(:is_a_filter => true)

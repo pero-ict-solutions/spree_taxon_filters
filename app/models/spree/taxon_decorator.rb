@@ -1,4 +1,6 @@
 Spree::Taxon.class_eval do
+  attr_accessible :filter_ids
+  has_and_belongs_to_many :filters, :join_table => "spree_taxonomies_filters", :class_name => "Spree::Taxonomy"
 
   def taxon_filter
     self.id.to_s
