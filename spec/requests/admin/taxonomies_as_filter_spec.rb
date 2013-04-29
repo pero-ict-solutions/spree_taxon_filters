@@ -23,6 +23,11 @@ describe "Admin Taxonomies as filters" do
       taxonomy.filters.should include(taxonomy_filter)
     end
 
+    it "will not list the filter taxonomies on a filter taxonomy" do
+      visit spree.edit_admin_taxonomy_path(taxonomy_filter)
+      page.should_not have_content "Filters"
+    end
+
   end
 
 

@@ -1,4 +1,5 @@
 <!-- insert_bottom "[data-hook='admin_inside_taxonomy_form']" -->
+<% unless @taxonomy.is_a_filter %>
 <div class="field">
   <%= label_tag nil, t(:filters) %>
   <ul>
@@ -11,3 +12,4 @@
   </ul>
   <%= hidden_field_tag 'taxonomy[filter_ids][]', '' %>
 </div>
+<% end %>
