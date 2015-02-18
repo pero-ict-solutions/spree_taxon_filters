@@ -14,8 +14,8 @@ describe Spree::Product do
       let(:green_taxon) { create(:taxon, :name => "green", :taxonomy => taxonomy_by_color) }
       let(:sony_taxon) { create(:taxon, :name => "sony", :taxonomy => taxonomy) }
 
-      let(:product_red) { create(:simple_product, :taxons => [sony_taxon, red_taxon]) }
-      let(:product_green) { create(:simple_product, :taxons => [sony_taxon, green_taxon])}
+      let(:product_red) { create(:base_product, :taxons => [sony_taxon, red_taxon]) }
+      let(:product_green) { create(:base_product, :taxons => [sony_taxon, green_taxon])}
 
       it "returns the products that are assigned that taxon" do
         Spree::Product.filter_by(sony_taxon.id).should include(product_red, product_green)

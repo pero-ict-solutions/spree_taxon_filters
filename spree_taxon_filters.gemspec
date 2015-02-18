@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_taxon_filters'
-  s.version     = '1.2.4'
+  s.version     = '3.0.0'
   s.summary     = 'Filter your products by Taxonomies'
   s.description = 'Filter your products by Taxonomies'
   s.required_ruby_version = '>= 1.8.7'
@@ -16,12 +16,18 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 1.2.4'
+  s.add_dependency 'spree_core', '~> 3.0.0.rc2'
 
-  s.add_development_dependency 'capybara', '1.0.1'
-  s.add_development_dependency 'factory_girl', '~> 2.6.4'
+  s.add_development_dependency 'capybara', '~> 2.4'
+  s.add_development_dependency 'coffee-rails'
+  s.add_development_dependency 'database_cleaner'
+  s.add_development_dependency 'factory_girl', '~> 4.5'
   s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'rspec-rails',  '~> 2.9'
+  s.add_development_dependency 'rspec-rails', '~> 3.1'
+  s.add_development_dependency 'sass-rails', '~> 5.0.0.beta1'
+  s.add_development_dependency 'selenium-webdriver'
+  s.add_development_dependency 'simplecov'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'launchy'
+
 end
