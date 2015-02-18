@@ -12,8 +12,8 @@ describe Spree::Core::Search::TaxonFilterSearcher do
     let(:red_taxon) { create(:taxon, :name => "red", :taxonomy => taxonomy_by_color) }
     let(:green_taxon) { create(:taxon, :name => "green", :taxonomy => taxonomy_by_color) }
 
-    let(:product_sony_red) { create(:simple_product, :taxons => [sony_taxon, red_taxon]) }
-    let(:product_sony_green) { create(:simple_product, :taxons => [sony_taxon, green_taxon])}
+    let(:product_sony_red) { create(:base_product, :taxons => [sony_taxon, red_taxon]) }
+    let(:product_sony_green) { create(:base_product, :taxons => [sony_taxon, green_taxon])}
 
     context "with base taxon search" do
       let(:params) { {:taxon => sony_taxon.id} }
